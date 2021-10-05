@@ -23,22 +23,22 @@ namespace TechTalks.FixerIo.Client
 
         public Uri BaseAddress => _httpClient.BaseAddress;
 
-        public Task<IFixerResponse> GetAsync(DateTime date)
+        public Task<IFixerResponse> GetHistoricalAsync(DateTime date)
         {
             string query = BuildQuery();
             return GetAsync(date.ToString("yyyy-MM-dd"), query);
         }
 
-        public Task<IFixerResponse> GetAsync(DateTime date, IEnumerable<string> symbols)
+        public Task<IFixerResponse> GetHistoricalAsync(DateTime date, IEnumerable<string> symbols)
         {
             var symbolsValue = string.Join(',', symbols);
             string query = BuildQuery(KeyValuePair.Create("symbols", symbolsValue));
             return GetAsync(date.ToString("yyyy-MM-dd"), query);
         }
 
-        public Task<IFixerResponse> GetAsync(DateTime date, params Symbols[] symbols)
+        public Task<IFixerResponse> GetHistoricalAsync(DateTime date, params Symbols[] symbols)
         {
-            return GetAsync(date, symbols.Select(p => p.ToString()));
+            return GetHistoricalAsync(date, symbols.Select(p => p.ToString()));
         }
 
         public Task<IFixerResponse> GetLatestAsync()

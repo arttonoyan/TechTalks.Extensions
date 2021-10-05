@@ -12,8 +12,8 @@ namespace TechTalks.FixerIo.Client
         Task<IFixerResponse> GetLatestAsync(IEnumerable<Symbols> symbols);
         Task<IFixerResponse> GetLatestAsync(params Symbols[] symbols);
 
-        Task<IFixerResponse> GetAsync(DateTime date);
-        Task<IFixerResponse> GetAsync(DateTime date, IEnumerable<string> symbols);
-        Task<IFixerResponse> GetAsync(DateTime date, params Symbols[] symbols);
+        Task<IFixerResponse> GetHistoricalAsync(DateTime date);
+        Task<IFixerResponse> GetHistoricalAsync(DateTime date, IEnumerable<string> symbols);
+        Task<IFixerResponse> GetHistoricalAsync(DateTime date, params Symbols[] symbols);
     }
 }
