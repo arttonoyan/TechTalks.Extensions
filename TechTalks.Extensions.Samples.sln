@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FixerIoClient", "FixerIoClient", "{DDCB570B-5B6E-45E1-9C26-2BB5DF8C8F42}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTalks.FixerIo.Abstractions", "FixerIoClient\TechTalks.FixerIo.Abstractions\TechTalks.FixerIo.Abstractions.csproj", "{35262AFA-5B2E-4A54-BBA3-7529F7D8E0FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{EC0C6FC0-CE07-4C48-8BB9-DEBB4CAB92B7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTalks.FixerIo.Client", "FixerIoClient\TechTalks.FixerIo.Client\TechTalks.FixerIo.Client.csproj", "{86053FEF-AC4E-4B7B-999F-870323595C4C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTalks.FixerIo.Client.Recommended", "FixerIoClient\TechTalks.FixerIo.Client.Recommended\TechTalks.FixerIo.Client.Recommended.csproj", "{BE4B7E51-5C41-47C2-96A2-AD92C582E0C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTalks.FixerIo.Client.ConsoleTestApp", "FixerIoClient\App\TechTalks.FixerIo.Client.ConsoleTestApp\TechTalks.FixerIo.Client.ConsoleTestApp.csproj", "{0BDB72E1-E3E4-43EE-BF3B-818FA596E948}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35262AFA-5B2E-4A54-BBA3-7529F7D8E0FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35262AFA-5B2E-4A54-BBA3-7529F7D8E0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35262AFA-5B2E-4A54-BBA3-7529F7D8E0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35262AFA-5B2E-4A54-BBA3-7529F7D8E0FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86053FEF-AC4E-4B7B-999F-870323595C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86053FEF-AC4E-4B7B-999F-870323595C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86053FEF-AC4E-4B7B-999F-870323595C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86053FEF-AC4E-4B7B-999F-870323595C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE4B7E51-5C41-47C2-96A2-AD92C582E0C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE4B7E51-5C41-47C2-96A2-AD92C582E0C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE4B7E51-5C41-47C2-96A2-AD92C582E0C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE4B7E51-5C41-47C2-96A2-AD92C582E0C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BDB72E1-E3E4-43EE-BF3B-818FA596E948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BDB72E1-E3E4-43EE-BF3B-818FA596E948}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BDB72E1-E3E4-43EE-BF3B-818FA596E948}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BDB72E1-E3E4-43EE-BF3B-818FA596E948}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{35262AFA-5B2E-4A54-BBA3-7529F7D8E0FA} = {DDCB570B-5B6E-45E1-9C26-2BB5DF8C8F42}
+		{EC0C6FC0-CE07-4C48-8BB9-DEBB4CAB92B7} = {DDCB570B-5B6E-45E1-9C26-2BB5DF8C8F42}
+		{86053FEF-AC4E-4B7B-999F-870323595C4C} = {DDCB570B-5B6E-45E1-9C26-2BB5DF8C8F42}
+		{BE4B7E51-5C41-47C2-96A2-AD92C582E0C8} = {DDCB570B-5B6E-45E1-9C26-2BB5DF8C8F42}
+		{0BDB72E1-E3E4-43EE-BF3B-818FA596E948} = {EC0C6FC0-CE07-4C48-8BB9-DEBB4CAB92B7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BA12C84-078A-4A17-9E58-2D770176223B}
+	EndGlobalSection
+EndGlobal
