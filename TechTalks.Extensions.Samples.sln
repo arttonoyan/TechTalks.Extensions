@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTalks.FixerIo.Client.Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTalks.FixerIo.Client.Standard", "FixerIoClient\TechTalks.FixerIo.Client.Standard\TechTalks.FixerIo.Client.Standard.csproj", "{5141C5D1-923B-4A33-9DAC-40AA05DF1305}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DecoratorPattern", "DecoratorPattern", "{CAC35F6C-1AC0-4658-9F5F-211FC556B110}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
