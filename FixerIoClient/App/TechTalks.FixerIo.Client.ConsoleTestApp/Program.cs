@@ -5,6 +5,7 @@ using TechTalks.FixerIo.Client.Standard;
 
 namespace TechTalks.FixerIo.Client.ConsoleTestApp
 {
+    //https://fixer.io/
     class Program
     {
         protected static IServiceProvider _provider;
