@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace TechTalks.FixerIo.Client
+namespace TechTalks.FixerIo.Client.Standard
 {
     public interface IFixerClient
     {

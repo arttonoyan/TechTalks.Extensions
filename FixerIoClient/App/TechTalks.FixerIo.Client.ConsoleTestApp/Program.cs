@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
+using TechTalks.FixerIo.Client.Standard;
 
 namespace TechTalks.FixerIo.Client.ConsoleTestApp
 {

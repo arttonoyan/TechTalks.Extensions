@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\TechTalks.FixerIo.Client.Recommended\TechTalks.FixerIo.Client.Recommended.csproj" />
-    <ProjectReference Include="..\..\TechTalks.FixerIo.Client\TechTalks.FixerIo.Client.csproj" />
+    <ProjectReference Include="..\..\TechTalks.FixerIo.Client.Standard\TechTalks.FixerIo.Client.Standard.csproj" />
   </ItemGroup>
 
 </Project>

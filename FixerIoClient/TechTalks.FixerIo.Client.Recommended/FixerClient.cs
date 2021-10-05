@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace TechTalks.FixerIo.Client
+namespace TechTalks.FixerIo.Client.Recommended
 {
     public class FixerClient : IFixerClient
     {
@@ -22,47 +22,6 @@ namespace TechTalks.FixerIo.Client
         }
 
         public Uri BaseAddress => _httpClient.BaseAddress;
-
-        public Task<IFixerResponse> GetHistoricalAsync(DateTime date)
-        {
-            string query = BuildQuery();
-            return GetAsync(date.ToString("yyyy-MM-dd"), query);
-        }
-
-        public Task<IFixerResponse> GetHistoricalAsync(DateTime date, IEnumerable<string> symbols)
-        {
-            var symbolsValue = string.Join(',', symbols);
-            string query = BuildQuery(KeyValuePair.Create("symbols", symbolsValue));
-            return GetAsync(date.ToString("yyyy-MM-dd"), query);
-        }
-
-        public Task<IFixerResponse> GetHistoricalAsync(DateTime date, params Symbols[] symbols)
-        {
-            return GetHistoricalAsync(date, symbols.Select(p => p.ToString()));
-        }
-
-        public Task<IFixerResponse> GetLatestAsync()
-        {
-            string query = BuildQuery();
-            return GetAsync("latest", query);
-        }
-
-        public Task<IFixerResponse> GetLatestAsync(IEnumerable<string> symbols)
-        {
-            var symbolsValue = string.Join(',', symbols);
-            var query = BuildQuery(KeyValuePair.Create("symbols", symbolsValue));
-            return GetAsync("latest", query);
-        }
-
-        public Task<IFixerResponse> GetLatestAsync(IEnumerable<Symbols> symbols)
-        {
-            return GetLatestAsync(symbols.Select(p => p.ToString()));
-        }
-
-        public Task<IFixerResponse> GetLatestAsync(params Symbols[] symbols)
-        {
-            return GetLatestAsync(symbols.Select(p => p.ToString()));
-        }
 
         public Task<IFixerResponse> GetAsync(string path, string request)
         {

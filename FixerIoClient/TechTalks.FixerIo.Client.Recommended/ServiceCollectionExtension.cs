@@ -1,9 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
-using TechTalks.FixerIo.Client;
 
-namespace TechTalks.FixerIo
+namespace TechTalks.FixerIo.Client.Recommended
 {
     public static class ServiceCollectionExtension
     {
