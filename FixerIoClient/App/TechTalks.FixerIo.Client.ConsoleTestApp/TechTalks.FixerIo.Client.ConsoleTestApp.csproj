@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\TechTalks.Sample\TechTalks.Sample.csproj" />
     <ProjectReference Include="..\..\TechTalks.FixerIo.Client.Recommended\TechTalks.FixerIo.Client.Recommended.csproj" />
     <ProjectReference Include="..\..\TechTalks.FixerIo.Client.Standard\TechTalks.FixerIo.Client.Standard.csproj" />
   </ItemGroup>

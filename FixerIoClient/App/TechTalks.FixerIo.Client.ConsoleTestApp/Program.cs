@@ -6,32 +6,27 @@ using TechTalks.FixerIo.Client.Standard;
 namespace TechTalks.FixerIo.Client.ConsoleTestApp
 {
     //https://fixer.io/
-    class Program
+    class Program : Sample
     {
-        protected static IServiceProvider _provider;
-
-        static async Task Main(string[] args)
+        public override async Task RunAsync()
         {
-            Configure();
-
             var client = _provider.GetRequiredService<IFixerClient>();
             var res = await client.GetLatestAsync(Symbols.AFN, Symbols.AMD);
 
             Console.ReadLine();
         }
 
-        private static void Configure()
+        protected override void ConfigureServices(IServiceCollection services)
         {
-            var services = new ServiceCollection();
-
             const string factoryName = "FixerTest";
             services.AddFixerClient(factoryName, options => options.Configure(cfg =>
             {
                 cfg.BaseUrl = "http://data.fixer.io/api/";
                 cfg.AccessKey = "some-key";
             }));
-
-            _provider = services.BuildServiceProvider();
         }
+
+        public static Task<int> Main(string[] args) =>
+            RunProgramAsConsoleAsync<Program>(args);
     }
 }
