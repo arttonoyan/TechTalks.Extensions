@@ -5,6 +5,6 @@ namespace TechTalks.Hangfire.Standard
 {
     public interface IBackgroundJobClientService
     {
-        void Enqueue(Expression<Action> methodCall);
+        void BachEnqueue(Expression<Action> methodCall);
     }
 }

@@ -5,9 +5,9 @@ namespace TechTalks.Hangfire.Standard
 {
     public static class ServiceCollectionExtension
     {
-        public static IServiceCollection AddFixerClient(this IServiceCollection services) =>
-            services;
-                //.AddScoped<IFixerClient, FixerClient>()
-                //.ConfigureFixerClient(name, optionsBuilder);
+        public static IServiceCollection AddHangfire(this IServiceCollection services) =>
+            services
+                .ConfigureHangfire()
+                .AddScoped<IBackgroundJobClientService, BackgroundJobClientService>();
     }
 }

@@ -3,7 +3,7 @@ using Hangfire.SqlServer;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace TechTalks.Hangfire.Standard
+namespace TechTalks.Hangfire
 {
     public static class ServiceCollectionExtension
     {

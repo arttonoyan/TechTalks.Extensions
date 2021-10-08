@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace TechTalks.Hangfire.Standard
 {
-    public class BackgroundJobClientService
+    public class BackgroundJobClientService : IBackgroundJobClientService
     {
         private int _bachSize;
         private int _currentState;
