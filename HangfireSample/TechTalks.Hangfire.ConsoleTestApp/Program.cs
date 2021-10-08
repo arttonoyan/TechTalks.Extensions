@@ -14,9 +14,6 @@ namespace TechTalks.Hangfire.ConsoleTestApp
             //var jobClient = _provider.GetRequiredService<IBackgroundJobClient>();
             //jobClient.Enqueue(() => Console.WriteLine("Barev"));
 
-            //using var scope = _provider.GetRequiredService<IServiceScopeFactory>().CreateScope();
-            //var provider = scope.ServiceProvider;
-
             for (int i = 0; i < 30; i++)
             {
                 var jobClientSrvice = _provider.GetRequiredService<IBackgroundJobClientService>();
