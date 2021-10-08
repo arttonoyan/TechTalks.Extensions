@@ -16,6 +16,7 @@ namespace TechTalks.Hangfire.Standard
         {
             _jobClient = jobClient;
             _bachSize = bachOptions.Size;
+            _jobs = new List<string>();
         }
 
         public void BachEnqueue(Expression<Action> methodCall)
