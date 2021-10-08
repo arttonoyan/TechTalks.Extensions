@@ -13,24 +13,29 @@ namespace TechTalks.Hangfire.ConsoleTestApp
             ////just for test
             //var jobClient = _provider.GetRequiredService<IBackgroundJobClient>();
             //jobClient.Enqueue(() => Console.WriteLine("Barev"));
+            //jobClient.Enqueue<IMyService>(s => s.TestMethod(1));
 
             for (int i = 0; i < 30; i++)
             {
                 var jobClientSrvice = _provider.GetRequiredService<IBackgroundJobClientService>();
-                jobClientSrvice.BachEnqueue(() => TestMethod(i));
+                jobClientSrvice
+                    .WithBatchSize(2)
+                    .BatchEnqueue(() => TestMethod(i));
             }
-            
+
             return Task.CompletedTask;
         }
 
         public void TestMethod(int i)
         {
             Console.WriteLine($"Barev {i}");
-            Task.Delay(1000).GetAwaiter().GetResult();
+            Task.Delay(3000).GetAwaiter().GetResult();
         }
 
         protected override void ConfigureServices(IServiceCollection services) =>
-            services.AddHangfireServices();
+            services
+                .AddHangfireServices()
+                .AddScoped<IMyService, MyService>();
 
         public static Task<int> Main(string[] args) =>
             RunProgramAsHostAsync<Program>(args);

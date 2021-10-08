@@ -19,22 +19,33 @@ namespace TechTalks.Hangfire.Standard
             _jobs = new List<string>();
         }
 
-        public void BachEnqueue(Expression<Action> methodCall)
+        public IBackgroundJobClientService WithBatchSize(int size)
         {
+            _bachSize = size;
+            return this;
+        }
+
+        public string BatchEnqueue(Expression<Action> methodCall)
+        {
+            string jobId;
             if (_jobs.Count < _bachSize)
             {
-                _jobs.Add(_jobClient.Enqueue(methodCall));
+                jobId = _jobClient.Enqueue(methodCall);
+                _jobs.Add(jobId);
             }
             else
             {
                 if (_currentState == _bachSize)
                     _currentState = 0;
 
-                string jobId = _jobs[_currentState];
-                _jobs[_currentState] = _jobClient.ContinueJobWith(jobId, methodCall);
+                var parentId = _jobs[_currentState];
+
+                jobId = _jobClient.ContinueJobWith(parentId, methodCall);
+                _jobs[_currentState] = jobId;
             }
 
             _currentState++;
+            return jobId;
         }
     }
 }
