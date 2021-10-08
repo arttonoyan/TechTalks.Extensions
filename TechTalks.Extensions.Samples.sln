@@ -15,7 +15,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTalks.FixerIo.Client.Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTalks.FixerIo.Client.Standard", "FixerIoClient\TechTalks.FixerIo.Client.Standard\TechTalks.FixerIo.Client.Standard.csproj", "{5141C5D1-923B-4A33-9DAC-40AA05DF1305}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DecoratorPattern", "DecoratorPattern", "{CAC35F6C-1AC0-4658-9F5F-211FC556B110}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HangfireSample", "HangfireSample", "{CAC35F6C-1AC0-4658-9F5F-211FC556B110}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTalks.Hangfire.Abstractions", "HangfireSample\TechTalks.Hangfire.Abstractions\TechTalks.Hangfire.Abstractions.csproj", "{1275DE73-A4BA-4ADA-9A49-DCBFAC548EB3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTalks.Hangfire.Standard", "HangfireSample\TechTalks.Hangfire.Standard\TechTalks.Hangfire.Standard.csproj", "{DE226ED6-BA9F-43D6-92D0-969122D6220D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{DFD5AB7C-82B3-45C9-92A8-097C3F450365}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTalks.Hangfire.ConsoleTestApp", "HangfireSample\TechTalks.Hangfire.ConsoleTestApp\TechTalks.Hangfire.ConsoleTestApp.csproj", "{6E115003-DE24-4C71-989B-3CB28E677C89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTalks.Sample", "TechTalks.Sample\TechTalks.Sample.csproj", "{CEAA1E5A-B1FA-44E3-AB49-811460346344}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +49,22 @@ Global
 		{5141C5D1-923B-4A33-9DAC-40AA05DF1305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5141C5D1-923B-4A33-9DAC-40AA05DF1305}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5141C5D1-923B-4A33-9DAC-40AA05DF1305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1275DE73-A4BA-4ADA-9A49-DCBFAC548EB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1275DE73-A4BA-4ADA-9A49-DCBFAC548EB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1275DE73-A4BA-4ADA-9A49-DCBFAC548EB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1275DE73-A4BA-4ADA-9A49-DCBFAC548EB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE226ED6-BA9F-43D6-92D0-969122D6220D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE226ED6-BA9F-43D6-92D0-969122D6220D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE226ED6-BA9F-43D6-92D0-969122D6220D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE226ED6-BA9F-43D6-92D0-969122D6220D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E115003-DE24-4C71-989B-3CB28E677C89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E115003-DE24-4C71-989B-3CB28E677C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E115003-DE24-4C71-989B-3CB28E677C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E115003-DE24-4C71-989B-3CB28E677C89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEAA1E5A-B1FA-44E3-AB49-811460346344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEAA1E5A-B1FA-44E3-AB49-811460346344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEAA1E5A-B1FA-44E3-AB49-811460346344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEAA1E5A-B1FA-44E3-AB49-811460346344}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +75,10 @@ Global
 		{BE4B7E51-5C41-47C2-96A2-AD92C582E0C8} = {DDCB570B-5B6E-45E1-9C26-2BB5DF8C8F42}
 		{0BDB72E1-E3E4-43EE-BF3B-818FA596E948} = {EC0C6FC0-CE07-4C48-8BB9-DEBB4CAB92B7}
 		{5141C5D1-923B-4A33-9DAC-40AA05DF1305} = {DDCB570B-5B6E-45E1-9C26-2BB5DF8C8F42}
+		{1275DE73-A4BA-4ADA-9A49-DCBFAC548EB3} = {CAC35F6C-1AC0-4658-9F5F-211FC556B110}
+		{DE226ED6-BA9F-43D6-92D0-969122D6220D} = {CAC35F6C-1AC0-4658-9F5F-211FC556B110}
+		{DFD5AB7C-82B3-45C9-92A8-097C3F450365} = {CAC35F6C-1AC0-4658-9F5F-211FC556B110}
+		{6E115003-DE24-4C71-989B-3CB28E677C89} = {DFD5AB7C-82B3-45C9-92A8-097C3F450365}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5BA12C84-078A-4A17-9E58-2D770176223B}
