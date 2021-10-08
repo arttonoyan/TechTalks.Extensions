@@ -1,5 +1,4 @@
-﻿using Hangfire;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 using TechTalks.Hangfire.Standard;
@@ -15,16 +14,32 @@ namespace TechTalks.Hangfire.ConsoleTestApp
             //jobClient.Enqueue(() => Console.WriteLine("Barev"));
             //jobClient.Enqueue<IMyService>(s => s.TestMethod(1));
 
+            #region Standard
+            var jobClientSrvice = _provider.GetRequiredService<IBackgroundJobClientService>();
             for (int i = 0; i < 30; i++)
             {
-                var jobClientSrvice = _provider.GetRequiredService<IBackgroundJobClientService>();
                 jobClientSrvice
                     .WithBatchSize(2)
                     .BatchEnqueue(() => TestMethod(i));
             }
+            #endregion
+
+            #region Recommended
+
+            //var jobClient = _provider.GetRequiredService<IBatchBackgroundJobClient>();
+            //for (int i = 0; i < 30; i++)
+            //{
+            //    jobClient
+            //        .WithBatchSize(2)
+            //        .Enqueue(() => TestMethod(i));
+            //}
+
+            #endregion
 
             return Task.CompletedTask;
         }
+
+
 
         public void TestMethod(int i)
         {

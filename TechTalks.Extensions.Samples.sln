@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechTalks.Hangfire.ConsoleT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTalks.Sample", "TechTalks.Sample\TechTalks.Sample.csproj", "{CEAA1E5A-B1FA-44E3-AB49-811460346344}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTalks.Hangfire.Recommended", "HangfireSample\TechTalks.Hangfire.Recommended\TechTalks.Hangfire.Recommended.csproj", "{AF8AA3BE-7CDC-46B5-9868-8D8CA044456A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{CEAA1E5A-B1FA-44E3-AB49-811460346344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEAA1E5A-B1FA-44E3-AB49-811460346344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEAA1E5A-B1FA-44E3-AB49-811460346344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF8AA3BE-7CDC-46B5-9868-8D8CA044456A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF8AA3BE-7CDC-46B5-9868-8D8CA044456A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF8AA3BE-7CDC-46B5-9868-8D8CA044456A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF8AA3BE-7CDC-46B5-9868-8D8CA044456A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{DE226ED6-BA9F-43D6-92D0-969122D6220D} = {CAC35F6C-1AC0-4658-9F5F-211FC556B110}
 		{DFD5AB7C-82B3-45C9-92A8-097C3F450365} = {CAC35F6C-1AC0-4658-9F5F-211FC556B110}
 		{6E115003-DE24-4C71-989B-3CB28E677C89} = {DFD5AB7C-82B3-45C9-92A8-097C3F450365}
+		{AF8AA3BE-7CDC-46B5-9868-8D8CA044456A} = {CAC35F6C-1AC0-4658-9F5F-211FC556B110}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5BA12C84-078A-4A17-9E58-2D770176223B}
