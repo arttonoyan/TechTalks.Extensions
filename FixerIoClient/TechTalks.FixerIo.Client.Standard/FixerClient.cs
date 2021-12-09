@@ -64,7 +64,7 @@ namespace TechTalks.FixerIo.Client.Standard
             return GetHistoricalAsync(date, symbols.Select(p => p.ToString()));
         }
 
-        public Task<IFixerResponse> GetAsync(string path, string request)
+        private Task<IFixerResponse> GetAsync(string path, string request)
         {
             try
             {
