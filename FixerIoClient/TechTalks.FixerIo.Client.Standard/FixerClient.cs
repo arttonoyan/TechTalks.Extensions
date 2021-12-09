@@ -84,11 +84,10 @@ namespace TechTalks.FixerIo.Client.Standard
             if (response.IsSuccessStatusCode)
             {
                 string content = await response.Content.ReadAsStringAsync();
-                return new FixerResponse
+                return new FixerResponse(() => JsonSerializer.Deserialize<Currency>(content, JsonHelper.DefaultOptions))
                 {
                     HttpStatusCode = response.StatusCode,
-                    Content = content,
-                    Currency = JsonSerializer.Deserialize<Currency>(content, JsonHelper.DefaultOptions)
+                    Content = content
                 };
             }
 
