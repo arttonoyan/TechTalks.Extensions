@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -23,55 +20,41 @@ namespace TechTalks.FixerIo.Client.Recommended
 
         public Uri BaseAddress => _httpClient.BaseAddress;
 
-        public Task<IFixerResponse> GetAsync(string path, string request)
+        public Task<IFixerResponse> GetAsync(string path, string query = null)
         {
             try
             {
-                return InnerGetAsync(path, request);
+                return InnerGetAsync(path, query);
             }
             catch (Exception ex)
             {
-                IFixerResponse response = new FixerResponse();
-                return Task.FromResult(response);
+                //TODO [log] [Artem Tonoyan] [12/09/2021]: Add log.
+                return Task.FromResult<IFixerResponse>(new FixerResponse
+                {
+                    HttpStatusCode = System.Net.HttpStatusCode.BadRequest
+                });
             }
         }
 
         private async Task<IFixerResponse> InnerGetAsync(string path, string query)
         {
+            var accessKeyQuey = $"access_key={_fixerOptions.AccessKey}";
+            if (!string.IsNullOrWhiteSpace(query))
+                accessKeyQuey = $"{accessKeyQuey}&{query}";
+
             var request = $"{path}?{query}";
             using var response = await _httpClient.GetAsync(request);
             if (response.IsSuccessStatusCode)
             {
                 string content = await response.Content.ReadAsStringAsync();
-                return new FixerResponse
+                return new FixerResponse(() => JsonSerializer.Deserialize<Currency>(content, JsonHelper.DefaultOptions))
                 {
                     HttpStatusCode = response.StatusCode,
-                    Content = content,
-                    Currency = JsonSerializer.Deserialize<Currency>(content, JsonHelper.DefaultOptions)
+                    Content = content
                 };
             }
 
-            return new FixerResponse
-            {
-                HttpStatusCode = response.StatusCode
-            };
-        }
-
-        public string BuildQuery(params KeyValuePair<string, string>[] requestParams)
-        {
-            var request = $"access_key={_fixerOptions.AccessKey}";
-            if (requestParams != null && requestParams.Length > 0)
-            {
-                var builder = new StringBuilder();
-                foreach (var (key, value) in requestParams)
-                {
-                    builder.Append(key).Append('=').Append(value).Append('&');
-                }
-
-                request = $"{request}&{builder}";
-            }
-
-            return request.TrimEnd('&');
+            return new FixerResponse { HttpStatusCode = response.StatusCode };
         }
     }
 }

@@ -7,7 +7,6 @@ namespace TechTalks.FixerIo.Client.Recommended
     public interface IFixerClient
     {
         Uri BaseAddress { get; }
-        string BuildQuery(params KeyValuePair<string, string>[] requestParams);
-        Task<IFixerResponse> GetAsync(string path, string request);
+        Task<IFixerResponse> GetAsync(string path, string query = null);
     }
 }
