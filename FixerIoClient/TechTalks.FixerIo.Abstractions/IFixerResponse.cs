@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 
 namespace TechTalks.FixerIo
@@ -16,14 +14,15 @@ namespace TechTalks.FixerIo
 
     public class FixerResponse : IFixerResponse
     {
-        public HttpStatusCode HttpStatusCode { get; set; } = HttpStatusCode.BadRequest;
+        public FixerResponse(Func<Currency> getCurrencyFunc = null)
+        {
+            if (getCurrencyFunc != null)
+                _currencyFactory = new Lazy<Currency>(getCurrencyFunc);
+        }
+
+        private Lazy<Currency> _currencyFactory;
+        public HttpStatusCode HttpStatusCode { get; set; }
         public string Content { get; set; }
-
-        public Currency Currency { get; set; }
-
-        //public bool IsSuccess =>
-        //    HttpStatusCode == HttpStatusCode.OK &&
-        //    Currency != null &&
-        //    Currency.Success;
+        public Currency Currency => _currencyFactory?.Value;
     }
 }
