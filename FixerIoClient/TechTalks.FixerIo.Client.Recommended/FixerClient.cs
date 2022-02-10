@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -9,13 +10,15 @@ namespace TechTalks.FixerIo.Client.Recommended
     public class FixerClient : IFixerClient
     {
         private readonly HttpClient _httpClient;
-        private readonly FixerOptions _fixerOptions;
+        private readonly string _accessKey;
 
-        public FixerClient(IHttpClientFactory httpClientFactory, IOptionsSnapshot<FixerOptions> fixerOptions)
+        public FixerClient(HttpClient httpClient, IOptionsSnapshot<FixerOptions> optionsFactory)
         {
-            const string name = "FixerTest";
-            _fixerOptions = fixerOptions.Get(name);
-            _httpClient = httpClientFactory.CreateClient(name);
+            _httpClient = httpClient;
+
+            var options = optionsFactory.Get("FixerTest");
+            _httpClient.BaseAddress = new Uri(options.BaseUrl);
+            _accessKey = options.AccessKey;
         }
 
         public Uri BaseAddress => _httpClient.BaseAddress;
@@ -38,11 +41,9 @@ namespace TechTalks.FixerIo.Client.Recommended
 
         private async Task<IFixerResponse> InnerGetAsync(string path, string query)
         {
-            var accessKeyQuey = $"access_key={_fixerOptions.AccessKey}";
-            if (!string.IsNullOrWhiteSpace(query))
-                accessKeyQuey = $"{accessKeyQuey}&{query}";
+            var request = HttpQueryBuilder.BuildRequest(path, KeyValuePair
+                .Create("access_key", _accessKey), query);
 
-            var request = $"{path}?{query}";
             using var response = await _httpClient.GetAsync(request);
             if (response.IsSuccessStatusCode)
             {

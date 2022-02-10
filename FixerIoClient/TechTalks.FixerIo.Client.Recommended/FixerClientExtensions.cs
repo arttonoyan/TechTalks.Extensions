@@ -13,27 +13,30 @@ namespace TechTalks.FixerIo.Client.Recommended
         public static Task<IFixerResponse> GetLatestAsync(this IFixerClient fixerClient, IEnumerable<string> symbols)
         {
             var symbolsValue = string.Join(',', symbols);
-            var query = QueryBuilderHeper.BuildQuery(KeyValuePair.Create("symbols", symbolsValue));
+            var query = HttpQueryBuilder.Build(KeyValuePair.Create("symbols", symbolsValue));
             return fixerClient.GetAsync("latest", query);
         }
 
         public static Task<IFixerResponse> GetLatestAsync(this IFixerClient fixerClient, IEnumerable<Symbols> symbols) =>
-            fixerClient.GetLatestAsync(symbols.Select(p => p.ToString()));
+            GetLatestAsync(fixerClient, symbols.Select(p => p.ToString()));
 
         public static Task<IFixerResponse> GetLatestAsync(this IFixerClient fixerClient, params Symbols[] symbols) =>
-            fixerClient.GetLatestAsync(symbols.Select(p => p.ToString()));
+            GetLatestAsync(fixerClient, symbols.Select(p => p.ToString()));
+
+        public static Task<IFixerResponse> GetLatestAsync(this IFixerClient fixerClient, params string[] symbols) =>
+            GetLatestAsync(fixerClient, symbols.AsEnumerable());
 
         public static Task<IFixerResponse> GetHistoricalAsync(this IFixerClient fixerClient, DateTime date) =>
-            fixerClient.GetAsync(date.ToString("yyyy-MM-dd"), QueryBuilderHeper.BuildQuery());
+            fixerClient.GetAsync(date.ToString("yyyy-MM-dd"), HttpQueryBuilder.Build());
 
         public static Task<IFixerResponse> GetHistoricalAsync(this IFixerClient fixerClient, DateTime date, IEnumerable<string> symbols)
         {
             var symbolsValue = string.Join(',', symbols);
-            string query = QueryBuilderHeper.BuildQuery(KeyValuePair.Create("symbols", symbolsValue));
+            string query = HttpQueryBuilder.Build(KeyValuePair.Create("symbols", symbolsValue));
             return fixerClient.GetAsync(date.ToString("yyyy-MM-dd"), query);
         }
 
         public static Task<IFixerResponse> GetHistoricalAsync(this IFixerClient fixerClient, DateTime date, params Symbols[] symbols) =>
-            fixerClient.GetHistoricalAsync(date, symbols.Select(p => p.ToString()));
+            GetHistoricalAsync(fixerClient, date, symbols.Select(p => p.ToString()));
     }
 }

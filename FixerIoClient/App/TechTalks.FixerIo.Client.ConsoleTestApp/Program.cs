@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
-using TechTalks.FixerIo.Client.Standard;
+using TechTalks.FixerIo.Client.Recommended;
 
 namespace TechTalks.FixerIo.Client.ConsoleTestApp
 {
@@ -22,7 +22,7 @@ namespace TechTalks.FixerIo.Client.ConsoleTestApp
             services.AddFixerClient(factoryName, options => options.Configure(cfg =>
             {
                 cfg.BaseUrl = "http://data.fixer.io/api/";
-                cfg.AccessKey = "some-key";
+                cfg.AccessKey = "5bb9e34a850d88ee925a582135d75262";
             }));
         }
 
