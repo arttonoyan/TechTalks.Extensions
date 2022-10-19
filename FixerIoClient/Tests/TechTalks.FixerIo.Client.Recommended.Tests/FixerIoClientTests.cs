@@ -31,11 +31,6 @@ namespace TechTalks.FixerIo.Client.Recommended.Tests
         [JsonFileData("FixerIoLatestContent.json")]
         public async Task GetAsyncTest(string data)
         {
-            var response = new HttpResponseMessage()
-            {
-                Content = new StringContent(data)
-            };
-
             //_httpHandler
             //    .SetupAnyRequest()
             //    .ReturnsAsync(response);
@@ -52,6 +47,8 @@ namespace TechTalks.FixerIo.Client.Recommended.Tests
 
             var client = provider.GetService<IFixerClient>();
             var res = await client.GetAsync("myMethod", "A1");
+
+            
         }
     }
 }

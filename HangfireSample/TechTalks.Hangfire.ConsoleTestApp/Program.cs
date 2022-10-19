@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Hangfire;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 using TechTalks.Hangfire.Standard;
@@ -9,6 +10,9 @@ namespace TechTalks.Hangfire.ConsoleTestApp
     {
         public override Task RunAsync()
         {
+            var storage = _provider.GetService<JobStorage>();
+            var tr = storage.GetConnection().CreateWriteTransaction();
+
             ////just for test
             //var jobClient = _provider.GetRequiredService<IBackgroundJobClient>();
             //jobClient.Enqueue(() => Console.WriteLine("Barev"));
